@@ -28,9 +28,6 @@ It allows users to search for documents or content by keyword stored in a Google
 3. Deploy as a Web App (new deployment → Web App).
 4. Input a keyword and get matched documents instantly.
 
-## Screenshots
-*(You can insert screenshots of your Sheet, Web App UI, or Draw.io diagrams here)*
-
 ## License
 MIT License (Feel free to fork, modify, and improve!)
 
