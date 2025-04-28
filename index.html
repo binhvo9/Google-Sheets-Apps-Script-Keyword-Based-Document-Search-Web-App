@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+      input, button { padding: 10px; font-size: 16px; }
+      #results { margin-top: 20px; }
+    </style>
+  </head>
+  <body>
+    <h1>Search Documents</h1>
+    <input type="text" id="searchQuery" placeholder="Enter keyword to search..." />
+    <button onclick="search()">Search</button>
+
+    <div id="results"></div>
+
+    <script>
+      function search() {
+        var searchQuery = document.getElementById('searchQuery').value;
+        
+        google.script.run.withSuccessHandler(function(results) {
+          var resultDiv = document.getElementById('results');
+          if (results.length > 0) {
+            resultDiv.innerHTML = '<h3>Matching Documents:</h3><ul>' + results.map(function(result) {
+              return '<li>' + result + '</li>';
+            }).join('') + '</ul>';
+          } else {
+            resultDiv.innerHTML = 'No matching documents found.';
+          }
+        }).searchDocuments(searchQuery);
+      }
+    </script>
+  </body>
+</html>
